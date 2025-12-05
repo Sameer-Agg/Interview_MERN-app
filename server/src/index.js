@@ -4,7 +4,13 @@ const cors = require('cors');
 const path = require('path');
 const ENV = require('./lib/env.js');
 const connectdb = require('./lib/db.js');
-app.use(cors());
+const serve = require('inngest/express');
+const { inngest, functions } = require('./lib/inngest.js');
+
+app.use(cors({
+    origin:ENV.CLIENT_URL,
+    credentials:true,
+}));
 
 
 
@@ -12,7 +18,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-
+app.use("/api/inngest",serve({client:inngest, functions}))
 
 
 app.get('/health',(req,res)=>{
