@@ -21,6 +21,8 @@ app.get('/health',(req,res)=>{
 app.get('/books',(req,res)=>{
     res.status(201).json({message:'books endpoint'})
 })
+ 
+
 
 if(ENV.NODE_ENV === "production"){
     app.use(express.static(path.join(__dirname,"../../client/dist")));
