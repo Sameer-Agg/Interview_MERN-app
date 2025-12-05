@@ -1,0 +1,22 @@
+{
+  "name": "interview-platform",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build":"npm install --prefix server && npm install --prefix client "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sameer-Agg/Interview_MERN-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Sameer-Agg/Interview_MERN-app/issues"
+  },
+  "homepage": "https://github.com/Sameer-Agg/Interview_MERN-app#readme"
+}
