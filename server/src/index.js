@@ -3,6 +3,7 @@ const app = express();
 const cors = require('cors');
 const path = require('path');
 const ENV = require('./lib/env.js');
+const connectdb = require('./lib/db.js');
 app.use(cors());
 
 
@@ -40,7 +41,19 @@ if(ENV.NODE_ENV === "production"){
 // }
 
 
-app.listen(ENV.PORT,()=>{
-    console.log("server started at ",ENV.PORT);
-    
-})
+
+
+
+const startServer = async ()=>{
+    try {
+        await connectdb();
+        app.listen(ENV.PORT,()=>{
+            console.log("server started at ",ENV.PORT);    
+        })} catch (error) {
+            console.log(error);
+            
+        } 
+    }
+ 
+
+    startServer();  
